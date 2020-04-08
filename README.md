@@ -17,6 +17,7 @@ $args = array(
 
 $wall = $VK->query('wall.get', $args); //Получаем json объект
 ```
+#### Существуют уже [готовые](https://github.com/maalcjke/VKAPI/wiki/%D0%A1%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B) методы
 ***
 ### Дополнительно
 Используйте [Вики](https://github.com/maalcjke/VKAPI/wiki) , чтобы подробнее узнать о библиотеке
