@@ -5,6 +5,19 @@
 $VK = new VKAPI(">> TOKEN VK <<<", "5.103");
 ```
 ***
+### Использование
+```php
+$VK = new VKAPI("xxxxxxx", "5.103"); // Объявляем главный класс, передавая в него токен и версию VK API
+
+$args = array(
+    'owner_id' => '1', // Идентификатор пользователя
+    'count' => '1', // Кол-во записей на вывод
+    'filter' => 'owner' // Выводим только записи владельца
+);
+
+$wall = $VK->query('wall.get', $args); //Получаем json объект
+```
+***
 ### Дополнительно
 Используйте [Вики](https://github.com/maalcjke/VKAPI/wiki) , чтобы подробнее узнать о библиотеке
 1. [Примеры](https://github.com/maalcjke/VKAPI/wiki/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
