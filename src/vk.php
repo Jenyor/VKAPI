@@ -1,5 +1,14 @@
 <?php
 
+/**
+   * mAlc_Jke a.k.a maalcjke
+   *
+   * $method - Вызываемый метод (Обязательно)
+   * $args   - Аргументы вызываемого метода (Обязательно)
+   * $json   - Вывод в формате json (Необязательно)
+   * return  - Успешное выполнение: response | ошибка: error
+   */
+
 class VKAPI {
   private $token;     //Токен ВК
   private $version;   //Версия VK API
