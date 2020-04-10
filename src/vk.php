@@ -12,7 +12,7 @@ class VKAPI {
 
 
   function __construct($token, $version, $lang = '0') { // Токен ВК, версия API, язык вывода
-    if(empty($token)) die("Invalid VK token"); else { // Если токена нет, то выводим ошибку
+    if(empty($token) || empty($version)) die("Invalid arguments VKAPI"); else { // Если токена нет, то выводим ошибку
       $this->token = $token;      //Присвоили токен VK
       $this->version = $version;  //Присвоили версию API
       $this->lang = $lang;        //Присвоили язык
@@ -31,7 +31,7 @@ class VKAPI {
   function query($method, $args = array(), $json = true) { // Получаем аргументы
     if(count($args) > 1) $args = http_build_query($args); // Переводим массив в ссылку
     $req = $this->http("https://api.vk.com/method/{$method}?{$args}&access_token={$this->token}&lang={$this->lang}&v={$this->version}"); //Сам запрос на VK API
-    return ($json) ? json_decode($req, true) : $req; // Выводим в одном из форматов
+    return ($json) ? json_decode($req) : $req; // Выводим в одном из форматов
   }
 
   /**
