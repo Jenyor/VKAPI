@@ -1,8 +1,9 @@
 <?php
 
 /**
- *
- */
+* mAlc_Jke a.k.a maalcjke
+* @2020
+*/
 
 require 'ErrorHandler.php';
 
