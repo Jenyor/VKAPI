@@ -1,50 +1,13 @@
 <?php
 
 /**
-   * mAlc_Jke a.k.a maalcjke
-   * @2020
-   */
+ *
+ */
 
-class VKAPI {
-  private $token;     //Токен ВК
-  private $version;   //Версия VK API
-  private $lang;      //Язык вывода
+require 'ErrorHandler.php';
 
-
-  function __construct($token, $version, $lang = '0') { // Токен ВК, версия API, язык вывода
-    if(empty($token) || empty($version)) die("Invalid arguments VKAPI"); else { // Если токена нет, то выводим ошибку
-      $this->token = $token;      //Присвоили токен VK
-      $this->version = $version;  //Присвоили версию API
-      $this->lang = $lang;        //Присвоили язык
-    }
-  }
-
-  /**
-   * Основной запрос на VK API
-   *
-   * $method - Вызываемый метод (Обязательно)
-   * $args   - Аргументы вызываемого метода (Обязательно)
-   * $json   - Вывод в формате json (Необязательно)
-   * return  - Успешное выполнение: response | ошибка: error
-   */
-
-  function query($method, $args = array(), $json = true) { // Получаем аргументы
-    if(count($args) > 1) $args = http_build_query($args); // Переводим массив в ссылку
-    $req = $this->http("https://api.vk.com/method/{$method}?{$args}&access_token={$this->token}&lang={$this->lang}&v={$this->version}"); //Сам запрос на VK API
-    return ($json) ? json_decode($req) : $req; // Выводим в одном из форматов
-  }
-
-  /**
-   * Получение содержимого из запроса
-   *
-   * $url    - Ссылка (Обязательно)
-   * return  - отдает ответ VK
-   */
-
-  function http($url) { // Получаем аргументы
-    return file_get_contents($url); // Возваращаем содержимое запроса
-  }
-
+class Methods extends ErrorHandler
+{
   /* Работа с информацией о пользователе */
 
   /**
@@ -178,8 +141,7 @@ class VKAPI {
   function utils_resolveScreenName($screen_name, $json = true) { // Получаем аргументы
     return $this->query('utils.resolveScreenName', "screen_name={$screen_name}", $json); //Отправляем запрос
   }
-
-
 }
+
 
  ?>
